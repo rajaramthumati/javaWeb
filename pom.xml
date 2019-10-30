@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hackthon.HariRajChiru</groupId>
+  <artifactId>hackthonCndHyd</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>javaWeb Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>hackthonCndHyd</finalName>
+  <plugins>
+    <plugin>
+      <groupId>com.spotify</groupId>
+      <artifactId>docker-maven-plugin</artifactId>
+      <version>1.0.0</version>
+      <configuration>
+        <imageName>hackthon</imageName>
+        <dockerDirectory>src/resources/docker</dockerDirectory>
+        <entryPoint>["java", "-jar", "/${project.build.finalName}.war"]</entryPoint>
+		<imageTags>
+           <imageTag>${project.version}</imageTag>
+           <imageTag>localhost:5000/${project.build.finalName}:latest</imageTag>
+		   <forceTags>true</forceTags>
+        </imageTags>
+		<serverId>docker-hub</serverId>
+		<newName>http://localhost:5000/my-image</newName>
+        <!-- copy the service's jar file from target into the root directory of the image --> 
+        <resources>
+           <resource>
+             <targetPath>/</targetPath>
+             <directory>${project.build.directory}</directory>
+             <include>${project.build.finalName}.jar</include>
+           </resource>
+        </resources>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+</project>
