@@ -28,7 +28,7 @@
         <entryPoint>["java", "-jar", "/${project.build.finalName}.war"]</entryPoint>
 		<imageTags>
            <imageTag>${project.version}</imageTag>
-           <imageTag>localhost:5000/${project.build.finalName}:latest</imageTag>
+           <imageTag>localhost:5000/hackathon:latest</imageTag>
 		   <forceTags>true</forceTags>
         </imageTags>
 		<serverId>docker-hub</serverId>
