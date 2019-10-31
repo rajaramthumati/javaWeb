@@ -1,4 +1,4 @@
-FROM java
-COPY hackthonCndHyd.war /
-RUN touch /hackthonCndHyd.war
+FROM tomcat:7
+COPY hackthonCndHyd.war /usr/local/tomcat/webapps/
+RUN touch /usr/local/tomcat/webapps/hackthonCndHyd.war
 ENTRYPOINT ["java", "-jar", "/hackthonCndHyd.war"]
