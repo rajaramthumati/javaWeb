@@ -26,13 +26,14 @@
         <imageName>hackthon</imageName>
         <dockerDirectory>src/resources/docker</dockerDirectory>
         <entryPoint>["java", "-jar", "/${project.build.finalName}.war"]</entryPoint>
-		<imageTags>
+	<imageTags>
            <imageTag>${project.version}</imageTag>
-           <imageTag>localhost:5000/hackathon:latest</imageTag>
-		   <forceTags>true</forceTags>
+           <imageTag>latest</imageTag>
+	   <forceTags>true</forceTags>
         </imageTags>
-		<serverId>docker-hub</serverId>
-		<newName>http://localhost:5000/my-image</newName>
+	<serverId>docker-hub</serverId>
+	<registryUrl>http://localhost:5000</registryUrl>
+		
         <!-- copy the service's jar file from target into the root directory of the image --> 
         <resources>
            <resource>
