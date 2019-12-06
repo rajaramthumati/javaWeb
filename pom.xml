@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.hackthon.HariRajChiru</groupId>
-  <artifactId>hackthonCndHyd</artifactId>
+  <groupId>com.hackthon</groupId>
+  <artifactId>CndHyd</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>javaWeb Maven Webapp</name>
@@ -33,15 +33,14 @@
   
   <properties>     
      <releases.distribution.url>
-        ${repository.server.root}/test-releases/
+        ${repository.server.root}/training-releases/
      </releases.distribution.url>
      <snapshots.distribution.url>
-        ${repository.server.root}/test-snapshots/
+        ${repository.server.root}/training-snapshots/
      </snapshots.distribution.url>
   </properties>
 	
-  <build>
-    <finalName>hackthonCndHyd</finalName>
+  <build>    
   <plugins>
     <plugin>
       <groupId>com.spotify</groupId>
